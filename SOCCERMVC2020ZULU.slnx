@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="SOCCERMVC2020ZULU.Common/SOCCERMVC2020ZULU.Common.csproj" />
+  <Project Path="SOCCERMVC2020ZULU.Web/SOCCERMVC2020ZULU.Web.csproj" />
+</Solution>
