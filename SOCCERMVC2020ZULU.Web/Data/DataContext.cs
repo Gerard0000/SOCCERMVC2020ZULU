@@ -9,6 +9,6 @@ namespace SOCCERMVC2020ZULU.Web.Data
         {
         }
 
-        public DbSet<TeamEntity> Team { get; set; }
+        public DbSet<Team> Team { get; set; }
     }
 }

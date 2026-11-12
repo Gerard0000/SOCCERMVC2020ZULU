@@ -2,7 +2,7 @@
 
 namespace SOCCERMVC2020ZULU.Web.Data.Entities;
 
-public class TeamEntity
+public class Team
 {
     public int Id { get; set; }
 

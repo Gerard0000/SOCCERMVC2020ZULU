@@ -56,7 +56,7 @@ namespace SOCCERMVC2020ZULU.Web.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,LogoPath")] TeamEntity teamEntity)
+        public async Task<IActionResult> Create([Bind("Id,Name,LogoPath")] Team teamEntity)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace SOCCERMVC2020ZULU.Web.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,LogoPath")] TeamEntity teamEntity)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,LogoPath")] Team teamEntity)
         {
             if (id != teamEntity.Id)
             {

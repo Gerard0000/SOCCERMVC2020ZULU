@@ -21,7 +21,7 @@ namespace SOCCERMVC2020ZULU.Web.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("SOCCERMVC2020ZULU.Web.Data.Entities.TeamEntity", b =>
+            modelBuilder.Entity("SOCCERMVC2020ZULU.Web.Data.Entities.Team", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
