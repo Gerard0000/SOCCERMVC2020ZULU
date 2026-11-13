@@ -12,4 +12,6 @@ public class Team
 
     [Display(Name = "Logo")]
     public string? LogoPath { get; set; }
+
+    public ICollection<GroupDetail>? GroupDetails { get; set; }
 }

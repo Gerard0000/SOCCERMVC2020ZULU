@@ -33,4 +33,6 @@ public class Tournament
 
     [Display(Name = "Logo")]
     public string? LogoPath { get; set; }
+
+    public ICollection<Group>? Groups { get; set; }
 }

@@ -11,4 +11,6 @@ public class Group
     public string? Name { get; set; }
 
     public Tournament? Tournament { get; set; }
+
+    public ICollection<Group>? Groups { get; set; }
 }

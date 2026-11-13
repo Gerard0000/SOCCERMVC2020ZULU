@@ -22,20 +22,20 @@ namespace SOCCERMVC2020ZULU.Web.Controllers
         // GET: Teams
         public async Task<IActionResult> Index()
         {
-              return _context.Team != null ? 
-                          View(await _context.Team.ToListAsync()) :
-                          Problem("Entity set 'DataContext.Team'  is null.");
+            return _context.Teams != null ?
+                        View(await _context.Teams.ToListAsync()) :
+                        Problem("Entity set 'DataContext.Team'  is null.");
         }
 
         // GET: Teams/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Team == null)
+            if (id == null || _context.Teams == null)
             {
                 return NotFound();
             }
 
-            var teamEntity = await _context.Team
+            var teamEntity = await _context.Teams
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (teamEntity == null)
             {
@@ -56,26 +56,26 @@ namespace SOCCERMVC2020ZULU.Web.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,LogoPath")] Team teamEntity)
+        public async Task<IActionResult> Create([Bind("Id,Name,LogoPath")] Team team)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(teamEntity);
+                _context.Add(team);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(teamEntity);
+            return View(team);
         }
 
         // GET: Teams/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Team == null)
+            if (id == null || _context.Teams == null)
             {
                 return NotFound();
             }
 
-            var teamEntity = await _context.Team.FindAsync(id);
+            var teamEntity = await _context.Teams.FindAsync(id);
             if (teamEntity == null)
             {
                 return NotFound();
@@ -121,12 +121,12 @@ namespace SOCCERMVC2020ZULU.Web.Controllers
         // GET: Teams/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Team == null)
+            if (id == null || _context.Teams == null)
             {
                 return NotFound();
             }
 
-            var teamEntity = await _context.Team
+            var teamEntity = await _context.Teams
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (teamEntity == null)
             {
@@ -141,23 +141,23 @@ namespace SOCCERMVC2020ZULU.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Team == null)
+            if (_context.Teams == null)
             {
                 return Problem("Entity set 'DataContext.Team'  is null.");
             }
-            var teamEntity = await _context.Team.FindAsync(id);
+            var teamEntity = await _context.Teams.FindAsync(id);
             if (teamEntity != null)
             {
-                _context.Team.Remove(teamEntity);
+                _context.Teams.Remove(teamEntity);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool TeamEntityExists(int id)
         {
-          return (_context.Team?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Teams?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
