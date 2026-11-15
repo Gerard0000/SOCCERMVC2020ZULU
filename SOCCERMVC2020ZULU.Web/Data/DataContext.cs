@@ -18,5 +18,14 @@ namespace SOCCERMVC2020ZULU.Web.Data
         public DbSet<Team>? Teams { get; set; }
 
         public DbSet<Tournament>? Tournaments { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Team>()
+                .HasIndex(t => t.Name)
+                .IsUnique();
+        }
     }
 }

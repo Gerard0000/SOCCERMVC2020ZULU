@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SOCCERMVC2020ZULU.Web.Data;
+using SOCCERMVC2020ZULU.Web.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer("name=LocalConnection"));
+
+builder.Services.AddScoped<IImageHelper, ImageHelper>();
+
+builder.Services.AddScoped<IConverterHelper, ConverterHelper>();
 
 var app = builder.Build();
 

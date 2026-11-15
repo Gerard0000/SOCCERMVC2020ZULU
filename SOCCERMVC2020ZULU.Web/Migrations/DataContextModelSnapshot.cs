@@ -159,6 +159,9 @@ namespace SOCCERMVC2020ZULU.Web.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.ToTable("Teams");
                 });
 
