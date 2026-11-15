@@ -9,11 +9,27 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer("name=LocalConnection"));
 
+builder.Services.AddTransient<SeedDb>();
+
 builder.Services.AddScoped<IImageHelper, ImageHelper>();
 
 builder.Services.AddScoped<IConverterHelper, ConverterHelper>();
 
 var app = builder.Build();
+
+//VA CON LOS SEEDERS
+SeedData(app);
+
+//VA CON LOS SEDDERS
+static void SeedData(WebApplication app)
+{
+    IServiceScopeFactory? scopedFactory = app.Services.GetService<IServiceScopeFactory>();
+
+    IServiceScope serviceScope = scopedFactory!.CreateScope();
+    using IServiceScope? scope = serviceScope;
+    SeedDb? service = scope.ServiceProvider.GetService<SeedDb>();
+    service!.SeedAsync().Wait();
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

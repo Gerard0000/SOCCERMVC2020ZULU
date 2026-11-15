@@ -12,5 +12,6 @@ public class Group
 
     public Tournament? Tournament { get; set; }
 
-    public ICollection<Group>? Groups { get; set; }
+    public ICollection<GroupDetail>? GroupDetails { get; set; }
+    public ICollection<Match>? Matches { get; set; }
 }

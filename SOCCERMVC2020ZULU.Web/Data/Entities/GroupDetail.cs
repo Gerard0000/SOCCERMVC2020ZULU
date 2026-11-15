@@ -6,8 +6,6 @@ public class GroupDetail
 {
     public int Id { get; set; }
 
-    public Team? Team { get; set; }
-
     [Display(Name = "Matches Played")]
     public int MatchesPlayed { get; set; }
 
@@ -33,7 +31,5 @@ public class GroupDetail
 
     public Group? Group { get; set; }
 
-    public ICollection<GroupDetail>? GroupDetails { get; set; }
-
-    public ICollection<Match>? Matches { get; set; }
+    public Team? Team { get; set; }
 }
